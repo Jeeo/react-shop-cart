@@ -13,8 +13,31 @@ class Cart extends Component {
 
   render() {
     console.log(this.state)
-    if (this.props.toCart) {
-      this.state.items.forEach((item) => {
+
+      return (
+        <div id="mymodal" className="modal bottom-sheet">
+          <div className="modal-content">
+            <div className="header">
+              <h4>Yours Products:</h4>
+            </div>
+            <ul className="collection">
+              <h5>Nothing yet</h5>
+            </ul>
+          </div>
+          <div className="modal-footer">
+            <a href="#!"
+              className="modal-close waves-effect waves-green btn-flat">Close</a>
+          </div>
+        </div>
+      );
+  }
+}
+
+export default Cart;
+
+/**
+ * 
+ *       this.state.items.forEach((item) => {
         return (
           <div id="mymodal" className="modal bottom-sheet">
             <div className="modal-content">
@@ -35,24 +58,4 @@ class Cart extends Component {
 
     }
     else {
-      return (
-        <div id="mymodal" className="modal bottom-sheet">
-          <div className="modal-content">
-            <div className="header">
-              <h4>Yours Products:</h4>
-            </div>
-            <ul className="collection">
-              <h5>Nothing yet</h5>
-            </ul>
-          </div>
-          <div className="modal-footer">
-            <a href="#!"
-              className="modal-close waves-effect waves-green btn-flat">Close</a>
-          </div>
-        </div>
-      );
-    }
-  }
-}
-
-export default Cart;
+ */
