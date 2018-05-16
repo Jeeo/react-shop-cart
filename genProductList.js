@@ -1,6 +1,7 @@
-const fs   = require('fs');
-const qnt  = 20; // Change here
-const path = './src/js/seed.js';
+const    fs   = require('fs');
+const    qnt  = 20; // Change here the quantity
+const    path = `./src/js/seed.js`;
+const imgPath = `./src/img/p.png` // change here the path of images
 
 fs.writeFile(path, `const mockDB = [ ${genProduct(qnt).toString()}\n]\n export default mockDB`, (err) => {
   if(err) {
@@ -17,7 +18,7 @@ function genProduct(qnt) {
     let x = {
       id: i,
       name: `Product ${i+1}`,
-      imgSrc: '/src/img/p.png',
+      imgSrc: `${imgPath}`,
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, doloribus?',
       price: genPrice(),
       quantity: Math.floor(Math.random() * Math.ceil(10)) + 1,
