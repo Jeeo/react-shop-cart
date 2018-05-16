@@ -1,7 +1,8 @@
-const fs = require('fs');
+const fs   = require('fs');
+const qnt  = 20; // Change here
+const path = './src/js/seed.js';
 
-
-fs.writeFile('./src/js/seed.js', `const mockDB = [ ${genProduct(20).toString()}\n]\n export default mockDB`, (err) => {
+fs.writeFile(path, `const mockDB = [ ${genProduct(qnt).toString()}\n]\n export default mockDB`, (err) => {
   if(err) {
     throw err;
   }
