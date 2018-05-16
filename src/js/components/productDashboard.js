@@ -26,15 +26,13 @@ class ProductDashboard extends Component {
     this.setState({toCart: this.state.toCart.concat(product)})
   }
 
-  render() {
-    const item = (this.state.toCart.length) ? this.state.toCart.pop() : null 
+  render() { 
     return (
       <div>
         <Navbar />
-        <Cart toCart={item}/>
+        <Cart toCart={this.state.toCart}/>
         <ProductList products={mockDB} addToCart={this.handleCart}/>   
       </div>
-      
     );
   }
 }

@@ -3,59 +3,38 @@ import React, { Component } from 'react';
 class Cart extends Component {
   constructor(props) {
     super(props);
-
-    this.state = { items: [] };
-  }
-
-  componentDidMount() {
-    this.setState({ items: this.props.toCart })
   }
 
   render() {
-    console.log(this.state)
-
-      return (
-        <div id="mymodal" className="modal bottom-sheet">
-          <div className="modal-content">
-            <div className="header">
-              <h4>Yours Products:</h4>
-            </div>
-            <ul className="collection">
-              <h5>Nothing yet</h5>
-            </ul>
+    return (
+      <div id="mymodal" className="modal bottom-sheet">
+        <div className="modal-content">
+          <div className="header">
+            <h4>Yours Products:</h4>
           </div>
-          <div className="modal-footer">
-            <a href="#!"
-              className="modal-close waves-effect waves-green btn-flat">Close</a>
-          </div>
+          <ul className="collection">
+            {this.props.toCart.map((product) => {
+              return <li className="collection-item">{product.name} <span className="right">${product.price}</span></li>
+            })}
+          </ul>
         </div>
-      );
+        <div className="modal-footer">
+          <span className="left">Total:
+              <span> $
+              {
+                (this.props.toCart.length > 0) ? this.props.toCart
+                  .map((product) => { return product.price })
+                  .reduce((total, next, ) => total + next) : 0
+              }
+            </span>
+          </span>
+          <a href="#!"
+            className="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+    );
   }
 }
 
 export default Cart;
 
-/**
- * 
- *       this.state.items.forEach((item) => {
-        return (
-          <div id="mymodal" className="modal bottom-sheet">
-            <div className="modal-content">
-              <div className="header">
-                <h4>Yours Products:</h4>
-              </div>
-              <ul className="collection">
-                <li className="collection-item"><a href="#">{item.name}</a></li>
-              </ul>
-            </div>
-            <div className="modal-footer">
-              <a href="#!"
-                className="modal-close waves-effect waves-green btn-flat">Close</a>
-            </div>
-          </div>
-        );
-      })
-
-    }
-    else {
- */
